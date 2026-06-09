@@ -23,16 +23,16 @@ const eliminaBtn = document.getElementById("rimuovi-card");
 
 eliminaBtn.addEventListener("click", () => {
   const cards = document.querySelectorAll(
-    "#offerta-settimana .card, #welcome-summer .card, #last-minute .card",
+    "#offerta-settimana .card, #welcome-summer .card, #last-minute .card"
   );
 
   cards.forEach((card) => {
     card.classList.toggle("d-none");
   });
 
-  if (eliminaBtn.textContent === "Nascondi Destinazioni") {
-    eliminaBtn.textContent = "Nascondi Destinazioni";
-  } else {
-    eliminaBtn.textContent = "Mostra Destinazioni";
-  }
+  const nascoste = cards[0].classList.contains("d-none");
+
+  eliminaBtn.textContent = nascoste
+    ? "Mostra Destinazioni"
+    : "Nascondi Destinazioni";
 });
